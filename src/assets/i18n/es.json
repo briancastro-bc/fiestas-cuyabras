@@ -1,0 +1,16 @@
+{
+  "helloWorld": "Hola mundo!",
+  "navbar": {
+    "links": [
+      {
+        "label": "Cronograma"
+      },
+      {
+        "label": "Día a día"
+      },
+      {
+        "label": "Patrocinadores"
+      }
+    ]
+  }
+}

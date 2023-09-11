@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/sass/theme';
+@import 'assets/sass/variables';
+@import 'assets/sass/normalize/normalize';
+@import 'assets/sass/normalize/variables';
+
+:root {
+  --primary-color: #{$primary-color};
+  --primary-alt-color: #{$primary-alt-color};
+  --secondary-color: #{$secondary-color};
+  --secondary-alt-color: #{$secondary-alt-color};
+  --tertiary-color: #{$tertiary-color};
+  --tertiary-alt-color: #{$tertiary-alt-color};
+  --accent-color: #{$accent-color};
+  --dark-color: #{$dark-color};
+  --light-color: #{$light-color};
+  --black-color: #{$black-color};
+  --white-color: #{$white-color};
+
+  --navbar-height: #{$navbar-height};
+}
+
+@font-face {
+  font-family: 'Amertha';
+  src: url('assets/fonts/AmerthaPERSONALUSEONLY.woff') format('woff'),
+    url('assets/fonts/AmerthaPERSONALUSEONLY.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'P22';
+  src: url('assets/fonts/P22NudgewinkW01-ProLight.woff') format('woff'),
+    url('assets/fonts/P22NudgewinkW01-ProLight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('assets/fonts/HelveticaNeue-UltraLight.woff') format('woff'),
+    url('assets/fonts/HelveticaNeue-UltraLight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+}
