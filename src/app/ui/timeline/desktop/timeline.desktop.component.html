@@ -1,0 +1,67 @@
+<section class="timeline" id="timeline">
+  <img class="timeline--sun" src="assets/illustrations/sun.svg" alt="Sun">
+  <div class="timeline--title">
+    <h2 class="timeline--title__text application-common-title">
+      Cronograma
+    </h2>
+  </div>
+  <div class="timeline__container">
+    <article class="timeline__container--items">
+      <div *ngFor="let week of weeks | keyvalue" class="timeline__container--items__column">
+        <div *ngFor="let day of week.value" class="timeline__container--items__column__element">
+          <div [style.border-radius]="day.expanded && day.agenda!.length > 0 ? '15px 15px 0 0' : '15px'"
+            class="timeline__container--items__column__element--content">
+            <span class="timeline__container--items__column__element--content--number">
+              {{ day.day }}
+            </span>
+            <p class="timeline__container--items__column__element--content--description">
+              {{ day.description }}
+            </p>
+            <div *ngIf="day.agenda!.length > 0" (click)="day.expanded = !day.expanded"
+              class="timeline__container--items__column__element--content--expand">
+              <i *ngIf="!day.expanded" class="bx bx-show-alt"></i>
+              <i *ngIf="day.expanded" class="bx bx-hide"></i>
+            </div>
+          </div>
+          <div *ngIf="day.expanded && day.agenda!.length > 0"
+            class="timeline__container--items__column__element--expandable">
+            <div *ngFor="let event of day.agenda" class="timeline__container--items__column__element--expandable__item">
+              <p class="timeline__container--items__column__element--expandable__item--event">
+                {{ event.event }}
+              </p>
+              <div class="timeline__container--items__column__element--expandable__item--actions">
+                <div class="timeline__container--items__column__element--expandable__item--actions__hour">
+                  <!-- <img src="assets/illustrations/clock.svg" alt="Clock"> -->
+                  <span class="timeline__container--items__column__element--expandable__item--actions__hour--label">
+                    {{ event.hour }}
+                  </span>
+                </div>
+                <a [href]="event.location" target="_blank"
+                  class="timeline__container--items__column__element--expandable__item--actions__location">
+                  <!-- <img src="assets/illustrations/location.svg" alt="Location" loading="lazy"> -->
+                  <svg class="timeline__container--items__column__element--expandable__item--actions__location--icon" viewBox="0 0 39 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M37.7145 17.8484C35.5241 6.243 30.0112 1.97329 25.7711 0.434126C25.6527 0.392194 25.5319 0.360124 25.4085 0.337925C25.3419 0.315725 25.2729 0.298463 25.2038 0.283663C25.0657 0.254064 23.8052 0 21.8862 0C18.4058 0 13.3123 0.816448 8.82056 4.70877C6.14181 7.02985 4.05999 10.1181 2.58742 13.9462C1.11485 17.7744 0.249071 22.3426 0.00241005 27.6261C-0.0222561 28.1391 0.143006 28.6497 0.471065 29.0542C0.89779 29.5772 1.49964 29.8411 2.26183 29.8411C2.29883 29.8411 3.52967 29.7967 5.42896 29.3946C5.54983 30.5268 5.76195 31.7799 6.03328 32.9194C6.75107 35.9312 7.68098 37.5517 9.04501 38.1709C9.47914 38.3657 9.96507 38.4669 10.4855 38.4669C11.297 38.4669 12.2343 38.2153 13.2975 37.7145L16.7088 43.2101C17.54 44.5495 18.9756 45.3487 20.5542 45.3487C21.9528 45.3487 23.2503 44.7172 24.1111 43.6147C29.4563 36.792 31.5109 33.7285 32.3323 32.2115C33.4374 32.362 34.6041 32.4409 35.8398 32.4409C36.3504 32.4409 36.8438 32.2559 37.2261 31.918C37.6725 31.5258 38.4224 30.8647 38.4791 26.4199C38.5161 23.6968 38.2423 20.653 37.7145 17.8484Z"
+                      fill="white" />
+                    <path
+                      d="M24.7722 2.33588C24.6292 5.19469 24.2025 7.7353 23.5636 9.99225C22.6584 9.2276 21.4892 8.76881 20.2115 8.76881C17.3379 8.76881 15.0069 11.0998 15.0069 13.9734C15.0069 16.4153 16.6891 18.4651 18.9584 19.025C12.2122 27.2882 2.06213 27.8801 2.09419 27.7247C3.49523 -2.13609 24.7722 2.33588 24.7722 2.33588Z"
+                      fill="#E41513" />
+                    <path
+                      d="M35.8399 30.3443C22.8754 30.3443 17.9298 20.6184 17.9298 20.6184C18.4207 20.1251 18.8795 19.6145 19.3062 19.0965C19.5997 19.1483 19.9031 19.1755 20.2114 19.1755C23.085 19.1755 25.416 16.8445 25.416 13.9709C25.416 12.5255 24.8265 11.2157 23.8719 10.2734C25.1619 5.8878 25.0534 2.40495 25.0534 2.40495C37.5221 6.93365 36.9671 29.3502 35.8374 30.3443H35.8399Z"
+                      fill="#EF7C1A" />
+                    <path
+                      d="M7.41452 27.3745C8.72429 26.933 10.2462 26.304 11.8569 25.3889C14.4616 23.9089 16.3807 22.2069 17.6978 20.8281C18.1788 21.6988 18.8325 22.72 19.718 23.7782C20.7244 24.9819 21.7455 25.8871 22.6039 26.5506C22.5595 26.6172 22.5053 26.6986 22.4411 26.7924C19.3159 31.3877 12.0863 37.2409 9.91073 36.2543C8.38636 35.5636 7.36765 29.7005 7.41452 27.3695V27.3745Z"
+                      fill="#04AB92" />
+                    <path
+                      d="M14.3162 35.3811C14.3162 35.3811 20.4136 31.2298 23.0578 26.9453C23.0924 26.8886 26.8762 29.5303 30.8499 30.3443C30.6106 31.7552 25.4727 38.4767 22.4634 42.3222C21.4249 43.6492 19.3826 43.5382 18.4946 42.1051L14.3186 35.3811H14.3162Z"
+                      fill="#9FC531" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

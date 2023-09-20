@@ -2,6 +2,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import NavbarComponent from './ui/layout/navbar/navbar.component';
+import MainComponent from './ui/main/main.component';
+import TimelineComponent from './ui/timeline/timeline.component';
+import DayByDayComponent from './ui/day-by-day/day-by-day.component';
+import FooterComponent from './ui/layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +13,11 @@ import NavbarComponent from './ui/layout/navbar/navbar.component';
   encapsulation: ViewEncapsulation.None,
   imports: [
     RouterOutlet,
-    NavbarComponent
+    NavbarComponent,
+    MainComponent,
+    TimelineComponent,
+    DayByDayComponent,
+    FooterComponent
   ],
   template: `
   <div id="app">
@@ -21,7 +29,10 @@ import NavbarComponent from './ui/layout/navbar/navbar.component';
     </svg>
 
     <main id="main">
-      <router-outlet/>
+      <app-main/>
+      <app-timeline id="timeline"/>
+      <app-daybyday id="dayByDay"/>
+      <app-footer id="sponsors"/>
     </main>
   </div>
   `,

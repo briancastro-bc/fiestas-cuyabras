@@ -1,0 +1,35 @@
+<div class="carrousel">
+  <div class="carrousel__wrapper">
+    <figure
+      *ngFor="let item of items; let i = index"
+      class="carrousel__wrapper--item"
+      [class.active]="i === currentIndex"
+    >
+      <img [src]="item?.image" [alt]="item?.description" class="carrousel__wrapper--item--image">
+      <figcaption *ngIf="item && item.description" class="carrousel__wrapper--item--description">
+        {{ item?.description }}
+      </figcaption>
+    </figure>
+    <div *ngIf="showActions" class="carrousel__wrapper--actions">
+      <span
+        class="carrousel__wrapper--actions__action"
+        (click)="previous()">
+        <i class="bx bx-chevron-left"></i>
+      </span>
+      <div class="carrousel__wrapper--actions__options">
+        <div
+          *ngFor="let item of items; let i = index"
+          (click)="selectItem(i)"
+          class="carrousel__wrapper--actions__options--option"
+          [style.background-color]="currentIndex === i ? 'var(--secondary-color)' : ''"
+          >
+        </div>
+      </div>
+      <span
+        class="carrousel__wrapper--actions__action"
+        (click)="next()">
+        <i class="bx bx-chevron-right"></i>
+      </span>
+    </div>
+  </div>
+</div>

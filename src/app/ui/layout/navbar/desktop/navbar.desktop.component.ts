@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -8,6 +9,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   imports: [
     CommonModule,
     TranslateModule,
+    RouterModule,
   ],
   providers: [
     TranslateService
@@ -15,4 +17,29 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './navbar.desktop.component.html',
   styleUrls: ['./navbar.desktop.component.scss'],
 })
-export default class NavbarDesktopComponent {}
+export default class NavbarDesktopComponent {
+
+  private readonly router: Router = inject(Router);
+
+  readonly links: {
+    label: string;
+    fragment: string;
+  }[] = [
+    {
+      label: "Cronograma",
+      fragment: "timeline"
+    },
+    {
+      label: "Día a día",
+      fragment: "dayByDay"
+    },
+    {
+      label: "Patrocinadores",
+      fragment: "sponsors"
+    }
+  ]
+
+  navigate(fragment: string): void {
+    this.router.navigate(['/'], { fragment });
+  }
+}

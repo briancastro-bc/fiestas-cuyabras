@@ -1,4 +1,4 @@
-import { provideRouter } from '@angular/router';
+import { RouterModule, provideRouter } from '@angular/router';
 import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { HttpBackend, HttpClient, provideHttpClient } from '@angular/common/http';
@@ -16,7 +16,7 @@ export function httpLoaderFactory(handler: HttpBackend): TranslateHttpLoader {
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
-    provideRouter(routes),
+    // provideRouter(routes),
     provideZoneChangeDetection({
       eventCoalescing: true,
     }),
@@ -30,6 +30,9 @@ bootstrapApplication(AppComponent, {
         useDefaultLang: true,
         defaultLanguage: 'es',
       }),
+      RouterModule.forRoot(routes, {
+        anchorScrolling: 'enabled',
+      })
     ),
   ]
 })

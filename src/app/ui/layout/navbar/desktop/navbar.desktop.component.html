@@ -1,7 +1,10 @@
 <header class="navbar">
   <div class="navbar__container">
     <nav class="navbar__container--navigation">
-      <a *ngFor="let link of 'navbar.links' | translate" class="navbar__container--navigation__link">
+      <a
+        *ngFor="let link of links"
+        (click)="navigate(link.fragment)"
+        class="navbar__container--navigation__link">
         {{ link.label }}
       </a>
     </nav>

@@ -1,0 +1,43 @@
+@import 'src/assets/sass/theme';
+@import 'src/assets/sass/variables';
+
+.daybyday {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  padding: 1.85rem 0;
+
+  &--flowers,
+  &--cloud {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &--cloud {
+    left: 5%;
+    height: 200px;
+  }
+
+  &--flowers {
+    top: 0;
+    right: -5%;
+    display: inline-block;
+    height: 100vh;
+    object-fit: contain;
+  }
+
+  &--title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--container {
+    width: 80%;
+    height: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    z-index: 5;
+  }
+}

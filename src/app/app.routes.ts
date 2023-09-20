@@ -8,6 +8,6 @@ export const routes: Routes = [
   },
   {
     path: 'discover',
-    loadComponent: () => import('./ui/main/main.component')
+    loadComponent: () => import('./app.component').then(m => m.AppComponent),
   }
 ];

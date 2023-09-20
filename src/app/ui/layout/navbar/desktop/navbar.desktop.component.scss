@@ -1,7 +1,7 @@
 @import 'src/assets/sass/variables';
 
 .navbar {
-  width: 100vw;
+  width: 100%;
   height: $navbar-height;
   background-color: transparent;
   z-index: 10;
@@ -23,7 +23,7 @@
       padding: 0 12.5rem 0 0;
 
       &__link {
-        font-family: 'Helvetica Neue';
+        font-family: 'P22';
         font-size: 20px;
         font-weight: 700;
         letter-spacing: 4.5px;
@@ -31,6 +31,11 @@
         border-radius: 10px;
         background-color: var(--primary-alt-color);
         color: var(--white-color);
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--primary-color);
+        }
       }
     }
   }
